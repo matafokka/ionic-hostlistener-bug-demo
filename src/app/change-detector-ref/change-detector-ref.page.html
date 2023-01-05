@@ -1,0 +1,26 @@
+<ion-content [fullscreen]="true">
+
+  <h1><span class="pre">ChangeDetectorRef</span> workaround demo</h1>
+
+  <h2>Document counters:</h2>
+
+  <p>Document click count: {{documentClickCount}}</p>
+  <p>Document pointer down count: {{documentPointerDownCount}}</p>
+  <p>Document pointer up count: {{documentPointerUpCount}}</p>
+
+  <h2>Window counters:</h2>
+
+  <i>
+    <p>
+      <b>These are commented out!</b> Be sure to uncomment <span class="pre">@HostListener</span>-s before testing
+      window event handlers.
+    </p>
+
+    <p>Also, read comments because window event listeners seem to throw document listeners behavior off.</p>
+  </i>
+
+  <p>Window click count: {{windowClickCount}}</p>
+  <p>Window pointer down count: {{windowPointerDownCount}}</p>
+  <p>Window pointer up count: {{windowPointerUpCount}}</p>
+
+</ion-content>

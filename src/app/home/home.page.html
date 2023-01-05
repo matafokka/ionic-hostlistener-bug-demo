@@ -1,20 +1,40 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <h1>Ionic document <span class="pre">@HostListener</span> bug demo</h1>
+
+  <p>Tap anywhere on the screen and see if counters will update.</p>
+
+  <p>It'll work in a browser both on PC and Android, but won't in APK.</p>
+
+  <p>My suspicion is that <span class="pre">@HostListener</span>-s are running outside <span class="pre">NgZone</span> in APK.</p>
+
+  <p>Notes:</p>
+  <ul>
+    <li>You can see correct counter values in <span class="pre">logcat</span>. Filter logs by <span class="pre">[BUG]</span> string.</li>
+    <li>Counters will update whenever change detection is triggered from outside, for example, when a button is clicked.</li>
+    <li>Below main demo you'll find workaround demos that work just fine.</li>
+  </ul>
+
+  <h2>Document counters:</h2>
+
+  <p>Document click count: {{documentClickCount}}</p>
+  <p>Document pointer down count: {{documentPointerDownCount}}</p>
+  <p>Document pointer up count: {{documentPointerUpCount}}</p>
+  
+  <h2>Window counters:</h2>
+  
+  <i>
+    <p>
+      <b>These are commented out!</b> Be sure to uncomment <span class="pre">@HostListener</span>-s before testing window event handlers.
+    </p>
+
+    <p>Also, read comments because window event listeners seem to throw document listeners behavior off.</p>
+  </i>
+
+  <p>Window click count: {{windowClickCount}}</p>
+  <p>Window pointer down count: {{windowPointerDownCount}}</p>
+  <p>Window pointer up count: {{windowPointerUpCount}}</p>
+
+  <p>Click this button to update it's counter and document counters:</p>
+  <ion-button expand="block" (click)="onIonicButtonClick()">Click count: {{ionicButtonClickCount}}</ion-button>
 </ion-content>

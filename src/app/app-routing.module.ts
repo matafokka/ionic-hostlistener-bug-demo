@@ -11,6 +11,14 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'zone-run',
+    loadChildren: () => import('./zone-run/zone-run.module').then( m => m.ZoneRunPageModule)
+  },
+  {
+    path: 'change-detector-ref',
+    loadChildren: () => import('./change-detector-ref/change-detector-ref.module').then( m => m.ChangeDetectorRefPageModule)
+  },
 ];
 
 @NgModule({
